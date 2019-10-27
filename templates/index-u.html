@@ -296,6 +296,67 @@
 		<div style="text-align: center;">
 			<button type='submit' id='rec-bot1'><a href="index-g.html#vklad">Try again</a></button>
 		</div>
+
+		<div id='hide'>
+
+
+
+			<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					    <script type="text/javascript">
+					      google.charts.load('current', {'packages':['corechart']});
+					      google.charts.setOnLoadCallback(drawChart);
+
+					      function drawChart() {
+
+					        var data = google.visualization.arrayToDataTable([
+					          ['"yes"', '"no"'],
+					          ['Yes',     357],
+					          ['No',      7362]
+
+
+					        ]);
+
+					        var options = {
+					          title: 'Do you trust to this official?'
+					        };
+
+					        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+					        chart.draw(data, options);
+					      }
+					    </script>
+					<div id="piechart1" style="width: 100%; height: 200px;"></div>
+				<p>Rating: <br><i>Bad person</i><svg id='cat'  xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
+						  <g id="Ellipse_12" data-name="Ellipse 12" fill="red" stroke="#000" stroke-width="1">
+						    <circle cx="15.5" cy="15.5" r="15.5" stroke="none"/>
+						    <circle cx="15.5" cy="15.5" r="15" fill="none"/>
+						  </g>
+						  <path id="Path_10" data-name="Path 10" d="M46.6,560.813c11.9-.107,7.783,10.317,7.783,10.317" transform="translate(-471.445 -268.64) rotate(-54)" fill="none" stroke="#000" stroke-width="1"/>
+						  <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(5 7)" fill="#fff" stroke="#000" stroke-width="1">
+						    <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+						    <circle cx="4.5" cy="4.5" r="4" fill="none"/>
+						  </g>
+						  <line id="Line_30" data-name="Line 30" x2="7" y2="5" transform="translate(6.5 5.5)" fill="none" stroke="#000" stroke-width="1"/>
+						  <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(9 11)" stroke="#000" stroke-width="1">
+						    <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+						    <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+						  </g>
+						  <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(18 7)" fill="#fff" stroke="#000" stroke-width="1">
+						    <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+						    <circle cx="4.5" cy="4.5" r="4" fill="none"/>
+						  </g>
+						  <line id="Line_31" data-name="Line 31" x1="7.021" y2="5" transform="translate(18.479 5.5)" fill="none" stroke="#000" stroke-width="1"/>
+						  <g id="Ellipse_16" data-name="Ellipse 16" transform="translate(20 11)" stroke="#000" stroke-width="1">
+						    <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+						    <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+						  </g>
+						</svg>
+</p>
+
+
+
+		</div>
+
 	</section>
 	<footer style ="margin-top: 400px;">
 
