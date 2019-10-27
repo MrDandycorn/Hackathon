@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum scale=1.0, maximum-scale=1.0">
+	<title>Visualisation</title>
+	<link rel="stylesheet" type="text/css" href="css/style-u.css">
+	<script src='js/api.js'></script>
+	<script type="text/javascript">
+		var about = sessionStorage.getItem('owner.about') || '';
+		var region = sessionStorage.getItem('owner.region.name') || '';
+		var owage = Number(sessionStorage.getItem('owner.wage') || 0);
+		document.getElementById('about').innerText =  about;
+		document.getElementById('region').innerText =  region;
+		document.getElementById('par').innerText =  owage;
+	</script>
+</head>
+<body>
+	<section id='layout'>
+				<br><br>
+				<div id='smile'>
+						<svg xmlns="http://www.w3.org/2000/svg" width="300" height="306.508" viewBox="0 0 300 306.508">
+					  <g id="Group_6" data-name="Group 6" transform="translate(-234 -718)">
+					    <g id="Ellipse_7" data-name="Ellipse 7" transform="translate(234 718)" fill="#ffff0d" stroke="#000" stroke-width="5">
+					      <circle cx="150" cy="150" r="150" stroke="none"/>
+					      <circle cx="150" cy="150" r="147.5" fill="none"/>
+					    </g>
+					    <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(277 798)" fill="#fff" stroke="#000" stroke-width="3">
+					      <circle cx="35.5" cy="35.5" r="35.5" stroke="none"/>
+					      <circle cx="35.5" cy="35.5" r="34" fill="none"/>
+					    </g>
+					    <g id="Ellipse_9" data-name="Ellipse 9" transform="translate(421 798)" fill="#fff" stroke="#000" stroke-width="3">
+					      <circle cx="35.5" cy="35.5" r="35.5" stroke="none"/>
+					      <circle cx="35.5" cy="35.5" r="34" fill="none"/>
+					    </g>
+					    <path id="Path_9" data-name="Path 9" d="M354.127,910.581c123.1,1.664,143.065,108.962,143.065,108.962" transform="translate(-518.558 391.677) rotate(-35)" fill="none" stroke="#000" stroke-width="10"/>
+					    <g id="Ellipse_10" data-name="Ellipse 10" transform="translate(303 824)" stroke="#000" stroke-width="1">
+					      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+					      <circle cx="9.5" cy="9.5" r="9" fill="none"/>
+					    </g>
+					    <g id="Ellipse_11" data-name="Ellipse 11" transform="translate(447 824)" stroke="#000" stroke-width="1">
+					      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+					      <circle cx="9.5" cy="9.5" r="9" fill="none"/>
+					    </g>
+					  </g>
+					</svg>
+
+	</div>
+		<p>OOPS..</p>
+		<p>So, you made your choice.<br> It is not correct.((</p>
+		<p>Real salary is "здесь будет отношение введенной цены к реальной" times different</p>
+		<p><div id='par'> </div></p>
+		<p>Official:<div id='about' style="font-size:24px;"><b>Alexey</b></div><br><div id='region' style="font-size:24px;"></div></p>
+			<br><br><br><br><br>
+				 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+							  <script type="text/javascript">
+							    google.charts.load("current", {packages:['corechart']});
+							    google.charts.setOnLoadCallback(drawChart);
+									var twage = Number(sessionStorage.getItem('teacher.wage') || 0);
+									var owage = Number(sessionStorage.getItem('owner.wage') || 0);
+									var dwage = Number(sessionStorage.getItem('doctor.wage') || 0);
+									var swage = Number(sessionStorage.getItem('scientist.wage') || 0);
+							    function drawChart() {
+							      var data = google.visualization.arrayToDataTable([
+							        ["Person", "Salary", { role: "style" } ],
+							        ["Teacher", twage, "#2128EB"],
+							        ["Official", owage, "#EB2121"],
+							        ["Doctor", dwage, "gold"],
+							        ["Scientist", swage, "#10F807"]
+							      ]);
+
+							      var view = new google.visualization.DataView(data);
+							      view.setColumns([0, 1,
+							                       { calc: "stringify",
+							                         sourceColumn: 1,
+							                         type: "string",
+							                         role: "annotation" },
+							                       2]);
+
+							      var options = {
+							        title: "How much do workers earn in the region, ₽/month",
+							        width: 500,
+							        height: 333,
+							        bar: {groupWidth: "75%"},
+							        legend: { position: "none" },
+							        animation:{
+												startup:true,
+	        							duration: 5000,
+	       							    easing: 'out',
+        							},
+     									vAxis: {minValue:0, maxValue:150000}
+							      };
+
+
+							      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+							      chart.draw(view, options);
+							  }
+							  </script>
+
+
+
+					<div id="columnchart_values" style="width: 100%; height: 300px;"></div>
+
+
+
+<br><br>
+
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					    <script type="text/javascript">
+					      google.charts.load('current', {'packages':['bar']});
+					      google.charts.setOnLoadCallback(drawChart);
+								var calcmeters = Number(sessionStorage.getItem('owner.calcmeters') || 0);
+								var realmeters = Number(sessionStorage.getItem('owner.realmeters') || 0);
+					      function drawChart() {
+					        var data = google.visualization.arrayToDataTable([
+					          ['Things', 'Cals square', 'Real square'],
+					          ['Car', 10, 30],
+					          ['Realty',calcmeters, realmeters]
+					        ]);
+
+					        var options = {
+					          chart: {
+					            title: 'Comparison of salaries and the value of some goods.',
+					            subtitle: 'Cars, realties',
+											animation:{
+												startup:true,
+	        							duration: 5000,
+	       							    easing: 'out',
+        							}
+					          }
+					        };
+
+					        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+					        chart.draw(data, google.charts.Bar.convertOptions(options));
+					      }
+					    </script>
+					<div id="columnchart_material" style="width: 100%; height: 350px;"></div>
+					<div id="piechart" style="width: 120%; height: 500px;"></div>
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					    <script type="text/javascript">
+					    function draw1(leaders){
+					      google.charts.load('current', {'packages':['corechart']});
+					      google.charts.setOnLoadCallback(drawChart);
+
+					      function drawChart() {
+					        var data = google.visualization.arrayToDataTable([
+					          ['Region', 'Number of square meters of house'],
+					          [leaders.meters[0].name, leaders.meters[0].avg],
+					          [leaders.meters[1].name, leaders.meters[1].avg],
+					          [leaders.meters[2].name, leaders.meters[2].avg],
+					          [leaders.meters[3].name, leaders.meters[3].avg],
+					          [leaders.meters[4].name, leaders.meters[4].avg],
+					          [leaders.meters[5].name, leaders.meters[5].avg],
+					          [leaders.meters[6].name, leaders.meters[6].avg],
+					          [leaders.meters[7].name, leaders.meters[7].avg],
+					          [leaders.meters[8].name, leaders.meters[8].avg],
+					          [leaders.meters[9].name, leaders.meters[9].avg]
+					        ]);
+
+					        var options = {
+					          title: 'Number of square meters of house',
+					          curveType: 'function',
+					          legend: { position: 'bottom' }
+					        };
+
+					        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+					        chart.draw(data, options);
+					      }
+					      }
+					      function draw2(leaders){
+					      google.charts.load('current', {'packages':['corechart']});
+					      google.charts.setOnLoadCallback(drawChart);
+
+					      function drawChart() {
+
+					        var data = google.visualization.arrayToDataTable([
+					          ['Region', 'Average of salary per month'],
+					          [leaders.wages[0].name,     leaders.wages[0].apm],
+					          [leaders.wages[1].name,     leaders.wages[1].apm],
+					          [leaders.wages[2].name,     leaders.wages[2].apm],
+					          [leaders.wages[3].name,     leaders.wages[3].apm],
+					          [leaders.wages[4].name,     leaders.wages[4].apm],
+					          [leaders.wages[5].name,     leaders.wages[5].apm],
+					          [leaders.wages[6].name,     leaders.wages[6].apm],
+					          [leaders.wages[7].name,     leaders.wages[7].apm],
+					          [leaders.wages[8].name,     leaders.wages[8].apm],
+					          [leaders.wages[9].name,     leaders.wages[9].apm]
+					        ]);
+
+					        var options = {
+					          title: 'Average of salary per month',
+										animation:{
+											startup:true,
+											duration: 5000,
+												easing: 'out',
+										}
+					        };
+
+					        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+					        chart.draw(data, options);
+					      }
+					    }
+						  var x = new XMLHttpRequest();
+						  x.open("POST", "/leaderboards", true);
+						  x.onload = function (){
+						  	  var j = JSON.parse(x.responseText);
+							  draw1(j);
+							  draw2(j);
+						  }
+						  x.send(null);
+					    </script>
+					    <div id="curve_chart" style="width: 100%; height: 300px"></div>
+
+
+
+
+
+		<br><br><br>
+		здесь диаграммы+народное мнение(сколько реально зарабатывает vs сколько кажется)
+		<br>
+		<form action="send.php" method="POST" id='know'>
+
+			<br><br><br><br>
+			<input id='num1' type="number" name="name"  min='0' max='1000000000000' size='3' value='0' placeholder="Enter salary of this official, what you think" required>₽/month.
+			<br>
+			<label class='form-label' for='contact-name'>Your comment</label>
+			<br>
+			<br>
+			<textarea id='com' type="text" name="comment"  placeholder="I have some information.. " required></textarea>
+			<br>
+			<button id='rec-bot'><a href="feedback.html">
+			Send feedback
+		</a>
+	</button>
+
+		</form>
+		<br><br><br>
+
+		<div style="text-align: center;">
+			<button type='submit' id='rec-bot1'><a href="index-g.html#vklad">Try again</a></button>
+		</div>
+	</section>
+	<footer>
+
+	Firmware for lyceum ©
+	<br>All rights reserved.
+	<br> Moscow, 2019.
+</footer>
+</body>
+</html>

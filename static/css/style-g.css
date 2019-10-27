@@ -1,0 +1,171 @@
+*{
+	font-family: Arial;
+	/*all tags*/ 
+	text-decoration: none;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 99%;
+	height: 100%;
+	background-color: transparent;
+
+}
+#layout{
+	
+	width: 100%;
+	height: 1750px;
+	font-size: 30px;
+	text-align: center;
+
+}
+#selector{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 103%;
+	height: 80px;
+	font-size: 40px;
+	border-bottom: 2px solid #494848;
+	border-top: 2px solid #494848;
+
+}
+
+
+
+#graphs-b a{
+	color: #494848;
+	background-color: transparent;
+	
+	padding: 5px 10px 5px 10px;
+	border-radius: 3px;
+}
+
+
+#graphs-b a:hover{
+	
+	
+	background-color: #494848;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	border-radius: 3px;
+
+}
+
+#main-b a{
+	color: #494848;
+	background-color: transparent;
+	
+	padding: 5px 10px 5px 10px;
+	border-radius: 3px;
+}
+
+
+#main-b a:hover{
+	
+	
+	background-color: #494848;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	border-radius: 3px;
+
+}
+
+
+#about-b a{
+	color: #494848;
+	background-color: transparent;
+	
+	padding: 5px 10px 5px 10px;
+	border-radius: 3px;
+}
+
+
+#about-b a:hover{
+	
+	
+	background-color: #494848;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	border-radius: 3px;
+
+}
+
+
+footer{
+	width: 103%;
+	height: 100px;
+	background-color: #AC11C4;
+	text-align: center;
+	padding-top: 10px;
+	vertical-align: center;
+	color: white;
+	font-size: 26px;
+}
+svg{
+	margin-top: 10px;
+	align-items: center;
+}
+#logo{
+	text-align: center;
+}
+@media(max-width: 1199px){
+
+#pictures{
+	
+	align-items: center;
+	vertical-align: middle;
+	text-align: center;
+	
+}}
+select{
+	width: 200px;
+}
+#city{
+	width: 70%;
+	height: 50px;
+	font-size: 25px;
+	border: 3px solid #AC11C4;
+	color: #494848;
+}
+#num{
+	width: 100px;
+	height: 30px;
+	font-size: 25px;
+	border: 3px solid #AC11C4;
+	color: #494848;
+}
+#num1{
+	width: 100px;
+	height: 30px;
+	font-size: 25px;
+	border: 3px solid #AC11C4;
+	color: #494848;
+	margin-left: 30px;
+	color: red;
+}
+#obertka{
+	padding-top: 30px;
+	width: 100%;
+	height: 200px;
+	border: 5px solid #AC11C4;
+}
+button {
+	width: 30%;
+	height: 50px;
+	background-color: #494848;
+	
+	border: 3px solid #494848;
+	
+	font-size: 30px;
+}
+button a{
+	color: white;
+}
+button:hover{
+	background-color: white;
+
+}
+button a:hover{
+	color: #494848;
+}

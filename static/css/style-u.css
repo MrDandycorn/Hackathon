@@ -1,0 +1,150 @@
+*{
+	font-family: Arial;
+	/*all tags*/ 
+	text-decoration: none;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 99%;
+	height: 100%;
+	background-color: transparent;
+
+}
+#layout{
+	
+	width: 99%;
+	height: 3000px;
+
+}
+#smile{
+	text-align: center;
+}
+#com{
+	width: 70%;
+	height: 200px;
+
+	
+	font-size: 25px;
+	border: 2px solid #AC11C4;
+	color: #494848;
+
+}
+form{
+	text-align: center;
+}
+footer{
+	width: 103%;
+	height: 100px;
+	background-color: #AC11C4;
+	text-align: center;
+	padding-top: 10px;
+	vertical-align: center;
+	color: white;
+	font-size: 26px;
+}
+#par{
+	font-size: 35px;
+	color: #AC11C4;
+}
+p{
+	font-size: 30px;
+	padding-left: 20px;
+}
+
+#rec-bot {
+	width: 60%;
+	height: 50px;
+	background-color: #494848;
+	
+	border: 3px solid #494848;
+	border-radius: 3px;
+	margin-top: 10px;
+	font-size: 30px;
+
+	color: white;
+}
+#rec-bot:hover{
+	background-color: white;
+}
+#rec-bot a{
+	color: white;
+
+}
+#rec-bot a:hover{
+	color: #494848;
+
+}
+
+#rec-bot {
+	width: 60%;
+	height: 50px;
+	background-color: #494848;
+	
+	border: 3px solid #494848;
+	border-radius: 3px;
+	margin-top: 10px;
+	font-size: 30px;
+
+	color: white;
+}
+#rec-bot:hover{
+	background-color: white;
+}
+#rec-bot a{
+	color: white;
+
+}
+#rec-bot a:hover{
+	color: #494848;
+
+}
+
+
+
+
+
+
+
+#rec-bot1 a:hover{
+	color: #AC11C4;
+
+}
+
+#rec-bot1 {
+	width: 40%;
+	height: 50px;
+	background-color: #AC11C4;
+	
+	border: 3px solid #AC11C4;
+	border-radius: 3px;
+	margin-top: 10px;
+	font-size: 30px;
+
+	color: white;
+}
+#rec-bot1:hover{
+	background-color: white;
+}
+#rec-bot1 a{
+	color: white;
+
+}
+#rec-bot1 a:hover{
+	color: #AC11C4;
+
+}
+#num1{
+	width: 60%;
+	height: 30px;
+	font-size: 25px;
+	border: 2px solid #AC11C4;
+	color: #494848;
+}
+#columnchart_material{
+	margin-left: 10px;
+
+}
+#curve_chart{
+	margin-top: -120px;
+}
