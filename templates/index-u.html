@@ -7,14 +7,6 @@
 	<title>Visualisation</title>
 	<link rel="stylesheet" type="text/css" href="css/style-u.css">
 	<script src='js/api.js'></script>
-	<script type="text/javascript">
-		var about = sessionStorage.getItem('owner.about') || '';
-		var region = sessionStorage.getItem('owner.region.name') || '';
-		var owage = Number(sessionStorage.getItem('owner.wage') || 0);
-		document.getElementById('about').innerText =  about;
-		document.getElementById('region').innerText =  region;
-		document.getElementById('par').innerText =  owage;
-	</script>
 </head>
 <body>
 	<section id='layout'>
@@ -49,18 +41,25 @@
 	</div>
 		<p>OOPS..</p>
 		<p>So, you made your choice.<br> It is not correct.((</p>
-		<p>Real salary is "здесь будет отношение введенной цены к реальной" times different</p>
+		<p>Real salary is <div id='coeffDiff'></div> times different</p>
 		<p><div id='par'> </div></p>
-		<p>Official:<div id='about' style="font-size:24px;"><b>Alexey</b></div><br><div id='region' style="font-size:24px;"></div></p>
+		<p>Official:<div id='about' style="font-size:24px;"><b>Oleg</b></div><br><div id='region' style="font-size:24px;"></div></p>
 			<br><br><br><br><br>
 				 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 							  <script type="text/javascript">
 							    google.charts.load("current", {packages:['corechart']});
 							    google.charts.setOnLoadCallback(drawChart);
+									var about = sessionStorage.getItem('owner.about') || '';
+									var region = sessionStorage.getItem('owner.region.name') || '';
 									var twage = Number(sessionStorage.getItem('teacher.wage') || 0);
 									var owage = Number(sessionStorage.getItem('owner.wage') || 0);
 									var dwage = Number(sessionStorage.getItem('doctor.wage') || 0);
 									var swage = Number(sessionStorage.getItem('scientist.wage') || 0);
+									var inputSalary = Number(sessionStorage.getItem('inputSalary') || 0);
+									document.getElementById('about').innerText =  about;
+									document.getElementById('region').innerText =  region;
+									document.getElementById('par').innerText =  owage;
+									document.getElementById('coeffDiff').innerText = (owage != 0 ? (inputSalary/owage).toFixed(2) : 0);
 							    function drawChart() {
 							      var data = google.visualization.arrayToDataTable([
 							        ["Person", "Salary", { role: "style" } ],
@@ -137,40 +136,13 @@
 					      }
 					    </script>
 					<div id="columnchart_material" style="width: 100%; height: 350px;"></div>
-					<div id="piechart" style="width: 120%; height: 500px;"></div>
+
+
+
+
+
 					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 					    <script type="text/javascript">
-					    function draw1(leaders){
-					      google.charts.load('current', {'packages':['corechart']});
-					      google.charts.setOnLoadCallback(drawChart);
-
-					      function drawChart() {
-					        var data = google.visualization.arrayToDataTable([
-					          ['Region', 'Number of square meters of house'],
-					          [leaders.meters[0].name, leaders.meters[0].avg],
-					          [leaders.meters[1].name, leaders.meters[1].avg],
-					          [leaders.meters[2].name, leaders.meters[2].avg],
-					          [leaders.meters[3].name, leaders.meters[3].avg],
-					          [leaders.meters[4].name, leaders.meters[4].avg],
-					          [leaders.meters[5].name, leaders.meters[5].avg],
-					          [leaders.meters[6].name, leaders.meters[6].avg],
-					          [leaders.meters[7].name, leaders.meters[7].avg],
-					          [leaders.meters[8].name, leaders.meters[8].avg],
-					          [leaders.meters[9].name, leaders.meters[9].avg]
-					        ]);
-
-					        var options = {
-					          title: 'Number of square meters of house',
-					          curveType: 'function',
-					          legend: { position: 'bottom' }
-					        };
-
-					        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-					        chart.draw(data, options);
-					      }
-					      }
-					      function draw2(leaders){
 					      google.charts.load('current', {'packages':['corechart']});
 					      google.charts.setOnLoadCallback(drawChart);
 
@@ -178,16 +150,17 @@
 
 					        var data = google.visualization.arrayToDataTable([
 					          ['Region', 'Average of salary per month'],
-					          [leaders.wages[0].name,     leaders.wages[0].apm],
-					          [leaders.wages[1].name,     leaders.wages[1].apm],
-					          [leaders.wages[2].name,     leaders.wages[2].apm],
-					          [leaders.wages[3].name,     leaders.wages[3].apm],
-					          [leaders.wages[4].name,     leaders.wages[4].apm],
-					          [leaders.wages[5].name,     leaders.wages[5].apm],
-					          [leaders.wages[6].name,     leaders.wages[6].apm],
-					          [leaders.wages[7].name,     leaders.wages[7].apm],
-					          [leaders.wages[8].name,     leaders.wages[8].apm],
-					          [leaders.wages[9].name,     leaders.wages[9].apm]
+					          ['Moscow',     650000],
+					          ['Ekaterinburg',      630000],
+					          ['Kazan',  560000],
+					          ['Volgograd', 400000],
+					          ['Saint-Petersburg', 380000],
+					          ['Novosibirsk', 350000],
+					          ['Khabarovsk', 300000],
+					          ['Voronezh', 190000],
+					          ['Pskov', 180000],
+					          ['Other', 340000],
+
 					        ]);
 
 					        var options = {
@@ -203,15 +176,41 @@
 
 					        chart.draw(data, options);
 					      }
-					    }
-						  var x = new XMLHttpRequest();
-						  x.open("POST", "/leaderboards", true);
-						  x.onload = function (){
-						  	  var j = JSON.parse(x.responseText);
-							  draw1(j);
-							  draw2(j);
-						  }
-						  x.send(null);
+					    </script>
+					<div id="piechart" style="width: 120%; height: 500px;"></div>
+
+
+
+
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					    <script type="text/javascript">
+					      google.charts.load('current', {'packages':['corechart']});
+					      google.charts.setOnLoadCallback(drawChart);
+
+					      function drawChart() {
+					        var data = google.visualization.arrayToDataTable([
+					          ['Region', 'Number of square meters of house'],
+					          ['Moscow',     1100],
+					          ['Ekaterinburg',      1000],
+					          ['Kazan',  940],
+					          ['Volgograd', 900],
+					          ['Saint-Petersburg', 890],
+					          ['Novosibirsk', 880],
+					          ['Khabarovsk', 730],
+					          ['Voronezh', 650],
+					          ['Pskov', 340],
+					        ]);
+
+					        var options = {
+					          title: 'Number of square meters of house',
+					          curveType: 'function',
+					          legend: { position: 'bottom' }
+					        };
+
+					        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+					        chart.draw(data, options);
+					      }
 					    </script>
 					    <div id="curve_chart" style="width: 100%; height: 300px"></div>
 

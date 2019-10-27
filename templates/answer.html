@@ -9,14 +9,6 @@
 	<title>Visualisation</title>
 	<link rel="stylesheet" type="text/css" href="css/answer-style.css">
 	<script src='js/api.js'></script>
-	<script type="text/javascript">
-		var about = sessionStorage.getItem('owner.about') || '';
-		var region = sessionStorage.getItem('owner.region.name') || '';
-		var owage = Number(sessionStorage.getItem('owner.wage') || 0);
-		document.getElementById('about').innerText =  about;
-		document.getElementById('region').innerText =  region;
-		document.getElementById('par').innerText =  owage;
-	</script>
 </head>
 <body>
 	<section id='layout'>
@@ -65,10 +57,15 @@
 							  <script type="text/javascript">
 							    google.charts.load("current", {packages:['corechart']});
 							    google.charts.setOnLoadCallback(drawChart);
+									var about = sessionStorage.getItem('owner.about') || '';
+									var region = sessionStorage.getItem('owner.region.name') || '';
 									var twage = Number(sessionStorage.getItem('teacher.wage') || 0);
 									var owage = Number(sessionStorage.getItem('owner.wage') || 0);
 									var dwage = Number(sessionStorage.getItem('doctor.wage') || 0);
 									var swage = Number(sessionStorage.getItem('scientist.wage') || 0);
+									document.getElementById('about').innerText =  about;
+									document.getElementById('region').innerText =  region;
+									document.getElementById('par').innerText =  owage;
 							    function drawChart() {
 							      var data = google.visualization.arrayToDataTable([
 							        ["Person", "Salary", { role: "style" } ],

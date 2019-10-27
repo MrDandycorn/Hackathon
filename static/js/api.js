@@ -41,6 +41,12 @@ function test () {
 };
 
 function playGame (ind) {
+  radio = [];
+  win = false;
+  owner = {};
+  teacher = {};
+  doctor = {};
+  scientist = {};
   var x = new XMLHttpRequest();
   var body = "int=" + ind;
   x.open("POST", "/generate", true);
@@ -92,7 +98,7 @@ function parseGenerate(answer) {
     parsedAns.hints.hints
       .filter(h => h.hint_type === 'estate')
       .forEach(h => {
-        owner.hintsEstates = owner.hintsEstates || '' + h.name || '' + '(' + h.own_type.name || '' + ')' + ' ' + h.square || '' + ' ' + h.share || '' + ' ' + h.relative || '' + ' ' + h.county || '' + ' ' + h.region || '' + ' ' + h.comment || '' + ','
+        owner.hintsEstates = String(owner.hintsEstates || '') + String(h.name || '') + '(' + String(h.own_type.name || '') + ')' + ' ' + String(h.square || '') + ' ' + String(h.share || '') + ' ' + String(h.relative || '') + ' ' + String(h.county || '') + ' ' + String(h.region || '') + ' ' + String(h.comment || '') + ','
       })
     if (owner.hintsEstates && owner.hintsEstates.length > 0) {
       owner.hintsEstates.substring(0, owner.hintsEstates.length - 1)
@@ -101,7 +107,7 @@ function parseGenerate(answer) {
     parsedAns.hints.hints
       .filter(h => h.hint_type === 'income')
       .forEach(h => {
-        owner.hintsIncomes = owner.hintsIncomes || '' + h.relative || '' + ' ' + h.size || '' + ' ' + h.comment || '' + ', '
+        owner.hintsIncomes = String(owner.hintsIncomes || '') + String(h.relative || '') + ' ' + String(h.size || '') + ' ' + String(h.comment || '') + ', '
       })
     if (owner.hintsIncomes && owner.hintsIncomes.length > 0) {
       owner.hintsIncomes.substring(0, owner.hintsIncomes.length - 1)
@@ -110,7 +116,7 @@ function parseGenerate(answer) {
     parsedAns.hints.hints
       .filter(h => h.hint_type === 'vehicle')
       .forEach(h => {
-        owner.hintsVehicles = owner.hintsVehicles || '' + h.relative || '' + ' ' + h.type.name || '' + ' '  + h.name || '' + ' ' + h.comment || '' + ', '
+        owner.hintsVehicles = String(owner.hintsVehicles || '') + (h.relative || '') + ' ' + String(h.type.name || '') + ' '  + String(h.name || '') + ' ' + String(h.comment || '') + ', '
       })
     if (owner.hintsVehicles && owner.hintsVehicles.length > 0) {
       owner.hintsVehicles.substring(0, owner.hintsVehicles.length - 1)
@@ -202,6 +208,7 @@ function checkChoise() {
           if (radio[i] === owner.wage) {
             win = true;
           }
+          sessionStorage.setItem('inputSalary', rad[i]);
       }
   };
   if (win === true) {
