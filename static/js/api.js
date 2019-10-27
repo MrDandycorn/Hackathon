@@ -137,7 +137,7 @@ function parseGenerate(answer) {
   };
   sessionStorage.setItem('owner.realmeters', owner.realmeters);
   sessionStorage.setItem('owner.calcmeters', owner.calcmeters);
-  sessionStorage.setItem('owner.wage', owner.wage);
+  sessionStorage.setItem('owner.wage', (owner.wage).toFixed(2));
   sessionStorage.setItem('owner.about', owner.name + ' ' + owner.comments || '');
   sessionStorage.setItem('owner.region.name', owner.region.name);
   sessionStorage.setItem('teacher.wage', teacher.wage);
@@ -205,7 +205,7 @@ function checkChoise() {
   var rad=document.getElementsByName('dengi');
   for (var i=0;i<rad.length; i++) {
       if (rad[i].checked) {
-          if (radio[i] === owner.wage) {
+          if ((Number(radio[i])).toFixed(2) === (owner.wage).toFixed(2)) {
             win = true;
           }
           sessionStorage.setItem('inputSalary', rad[i]);

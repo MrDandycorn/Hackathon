@@ -142,49 +142,26 @@
 
 					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 					    <script type="text/javascript">
-					    function draw1(leaders){
 					      google.charts.load('current', {'packages':['corechart']});
 					      google.charts.setOnLoadCallback(drawChart);
+
 					      function drawChart() {
-					        var data = google.visualization.arrayToDataTable([
-					          ['Region', 'Number of square meters of house'],
-					          [leaders.meters[0].name, leaders.meters[0].avg],
-					          [leaders.meters[1].name, leaders.meters[1].avg],
-					          [leaders.meters[2].name, leaders.meters[2].avg],
-					          [leaders.meters[3].name, leaders.meters[3].avg],
-					          [leaders.meters[4].name, leaders.meters[4].avg],
-					          [leaders.meters[5].name, leaders.meters[5].avg],
-					          [leaders.meters[6].name, leaders.meters[6].avg],
-					          [leaders.meters[7].name, leaders.meters[7].avg],
-					          [leaders.meters[8].name, leaders.meters[8].avg],
-					          [leaders.meters[9].name, leaders.meters[9].avg]
-					        ]);
-					        var options = {
-					          title: 'Number of square meters of house',
-					          curveType: 'function',
-					          legend: { position: 'bottom' }
-					        };
-					        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-					        chart.draw(data, options);
-					      }
-					      }
-					      function draw2(leaders){
-					      google.charts.load('current', {'packages':['corechart']});
-					      google.charts.setOnLoadCallback(drawChart);
-					      function drawChart() {
+
 					        var data = google.visualization.arrayToDataTable([
 					          ['Region', 'Average of salary per month'],
-					          [leaders.wages[0].name,     leaders.wages[0].apm],
-					          [leaders.wages[1].name,     leaders.wages[1].apm],
-					          [leaders.wages[2].name,     leaders.wages[2].apm],
-					          [leaders.wages[3].name,     leaders.wages[3].apm],
-					          [leaders.wages[4].name,     leaders.wages[4].apm],
-					          [leaders.wages[5].name,     leaders.wages[5].apm],
-					          [leaders.wages[6].name,     leaders.wages[6].apm],
-					          [leaders.wages[7].name,     leaders.wages[7].apm],
-					          [leaders.wages[8].name,     leaders.wages[8].apm],
-					          [leaders.wages[9].name,     leaders.wages[9].apm]
+					          ['Moscow',     650000],
+					          ['Ekaterinburg',      630000],
+					          ['Kazan',  560000],
+					          ['Volgograd', 400000],
+					          ['Saint-Petersburg', 380000],
+					          ['Novosibirsk', 350000],
+					          ['Khabarovsk', 300000],
+					          ['Voronezh', 190000],
+					          ['Pskov', 180000],
+					          ['Other', 340000],
+
 					        ]);
+
 					        var options = {
 					          title: 'Average of salary per month',
 										animation:{
@@ -193,29 +170,111 @@
 												easing: 'out',
 										}
 					        };
+
 					        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
 					        chart.draw(data, options);
 					      }
-					    }
-						  var x = new XMLHttpRequest();
-						  x.open("POST", "/leaderboards", true);
-						  x.onload = function (){
-						  	  var j = JSON.parse(x.responseText);
-							  draw1(j);
-							  draw2(j);
-						  }
-						  x.send(null);
 					    </script>
+
 					<div id="piechart" style="width: 120%; height: 500px;"></div>
-					    <div id="curve_chart" style="width: 100%; height: 300px"></div>
 
 
 
 
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					    <script type="text/javascript">
+							function draw1(leaders){
+								google.charts.load('current', {'packages':['corechart']});
+								google.charts.setOnLoadCallback(drawChart);
 
-		<br><br><br>
-		здесь диаграммы+народное мнение(сколько реально зарабатывает vs сколько кажется)
-		<br>
+								function drawChart() {
+									var data = google.visualization.arrayToDataTable([
+										['Region', 'Number of square meters of house'],
+										[leaders.meters[0].name, leaders.meters[0].avg],
+										[leaders.meters[1].name, leaders.meters[1].avg],
+										[leaders.meters[2].name, leaders.meters[2].avg],
+										[leaders.meters[3].name, leaders.meters[3].avg],
+										[leaders.meters[4].name, leaders.meters[4].avg],
+										[leaders.meters[5].name, leaders.meters[5].avg],
+										[leaders.meters[6].name, leaders.meters[6].avg],
+										[leaders.meters[7].name, leaders.meters[7].avg],
+										[leaders.meters[8].name, leaders.meters[8].avg],
+										[leaders.meters[9].name, leaders.meters[9].avg]
+									]);
+
+									var options = {
+										title: 'Number of square meters of house',
+										curveType: 'function',
+										legend: { position: 'bottom' }
+									};
+
+									var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+									chart.draw(data, options);
+								}
+								}
+								function draw2(leaders){
+								google.charts.load('current', {'packages':['corechart']});
+								google.charts.setOnLoadCallback(drawChart);
+
+								function drawChart() {
+
+									var data = google.visualization.arrayToDataTable([
+										['Region', 'Average of salary per month'],
+										[leaders.wages[0].name,     leaders.wages[0].apm],
+										[leaders.wages[1].name,     leaders.wages[1].apm],
+										[leaders.wages[2].name,     leaders.wages[2].apm],
+										[leaders.wages[3].name,     leaders.wages[3].apm],
+										[leaders.wages[4].name,     leaders.wages[4].apm],
+										[leaders.wages[5].name,     leaders.wages[5].apm],
+										[leaders.wages[6].name,     leaders.wages[6].apm],
+										[leaders.wages[7].name,     leaders.wages[7].apm],
+										[leaders.wages[8].name,     leaders.wages[8].apm],
+										[leaders.wages[9].name,     leaders.wages[9].apm]
+									]);
+
+									var options = {
+										title: 'Average of salary per month',
+										animation:{
+											startup:true,
+											duration: 5000,
+												easing: 'out',
+										}
+									};
+
+									var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+									chart.draw(data, options);
+								}
+							}
+							var x = new XMLHttpRequest();
+							x.open("POST", "/leaderboards", true);
+							x.onload = function (){
+									var j = JSON.parse(x.responseText);
+								draw1(j);
+								draw2(j);
+							}
+							x.send(null);
+							</script>
+							<div id="curve_chart" style="width: 100%; height: 300px"></div>
+
+
+				<div id='obertka'>
+					Do you trust to this official?<br>
+					<input id='num' type="radio" name="dengi" >Yes
+					<br>
+					<input id='num' type="radio" name="dengi" >No
+					<br>
+					<button id='sub' type='submit' ><a href="#hide" onclick="show()">Send</a></button>
+
+					<script type="text/javascript">
+						function show(){
+							document.getElementById('hide').style.display='block';
+						}
+		</script>
+				</div>
+
 		<form action="send.php" method="POST" id='know'>
 
 			<br><br><br><br>
@@ -238,7 +297,7 @@
 			<button type='submit' id='rec-bot1'><a href="index-g.html#vklad">Try again</a></button>
 		</div>
 	</section>
-	<footer>
+	<footer style ="margin-top: 400px;">
 
 	Firmware for lyceum ©
 	<br>All rights reserved.
